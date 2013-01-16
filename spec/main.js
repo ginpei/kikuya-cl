@@ -1,10 +1,15 @@
 require.config({
+	baseUrl: 'src',
 	paths: {
-		'$SRC': '../src'
+		'app': 'core/app',
+		'$SPEC': '../spec'
 	}
 });
 define([
-	'view/UserView'
+	'app',
+	// '$SPEC/model/UserCollection',
+	'$SPEC/view/MapView',
+	'$SPEC/view/UserView'
 ], function() {
 	jasmine.getEnv().execute();
 });

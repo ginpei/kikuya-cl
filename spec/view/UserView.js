@@ -1,5 +1,5 @@
 define([
-	'$SRC/view/UserView'
+	'view/UserView'
 ], function(UserView) {
 	describe('UserView', function() {
 		var view;
