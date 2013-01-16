@@ -12,7 +12,7 @@ define([
 			expect(view.users.length).toBe(0);
 			expect(view.$el.find('>.users>.user').length).toBe(0);
 
-			view.users.add();
+			view.$('.add-user').click();  // view.users.add();
 			expect(view.users.length).toBe(1);
 			expect(view.$el.find('>.users>.user').length).toBe(1);
 		});

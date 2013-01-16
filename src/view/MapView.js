@@ -4,6 +4,10 @@ define([
 	'view/UserView'
 ], function(app, UserCollection, UserView) {
 	return app.newView({
+		events: {
+			'click .add-user': 'createUser'
+		},
+
 		initialize: function() {
 			this.users = new UserCollection();
 			this.users.on('add', this.addUser, this);
@@ -12,6 +16,9 @@ define([
 
 		render: function() {
 			this.$el.html(
+				'<div>' +
+				'<button class="add-user">Add User</button>' +
+				'</div>' +
 				'<ul class="users">' +
 				'</ul>' +
 				'');
@@ -40,6 +47,13 @@ define([
 		removeUser: function(user, collection, options) {
 			var id = user.cid;
 			this.$('#user-' + id).remove();
+		},
+
+		/**
+		 * On "Add User" button is clicked.
+		 */
+		createUser: function(event) {
+			this.users.add();
 		}
 	});
 });
