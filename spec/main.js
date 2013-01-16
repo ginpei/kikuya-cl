@@ -8,8 +8,8 @@ require.config({
 define([
 	'app',
 	// '$SPEC/model/UserCollection',
-	'$SPEC/view/MapView',
-	'$SPEC/view/UserView'
+	'$SPEC/view/MapViewSpec',
+	'$SPEC/view/UserViewSpec'
 ], function() {
 	jasmine.getEnv().execute();
 });

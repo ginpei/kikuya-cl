@@ -36,6 +36,8 @@ define([
 		 */
 		addUser: function(user, users, options) {
 			var userView = new UserView(user);
+			userView.on('move', this.updateUserPosition, this);
+
 			var $user = userView.render().$el;
 			$user.attr('id', 'user-'+user.cid);
 			this.$users.append($user);
@@ -54,6 +56,14 @@ define([
 		 */
 		createUser: function(event) {
 			this.users.add();
+		},
+
+		/**
+		 * On user view is moved.
+		 */
+		updateUserPosition: function(event) {
+			// TODO
+			console.log(event);
 		}
 	});
 });
