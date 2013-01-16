@@ -8,6 +8,9 @@ define([
 			], function(MapView) {
 				app.map = new MapView();
 				app.render();
+
+				// TODO: remove me
+				app.map.users.add();
 			});
 		},
 
