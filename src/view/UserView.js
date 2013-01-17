@@ -8,7 +8,7 @@ define([
 		events: {
 			'touchmove': 'move',
 			'touchstart': 'startMoving',
-			'touchstop': 'stopMoving'
+			'touchend': 'stopMoving'
 		},
 
 		initialize: function(user) {
@@ -25,8 +25,13 @@ define([
 			return this;
 		},
 
+		/**
+		 * @param {Number} left
+		 * @param {Number} top
+		 */
 		setPosition: function(left, top) {
 			this.$el.css({ left:left, top:top });
+			this.trigger('move', { view:this });
 		},
 
 		/**
@@ -39,17 +44,15 @@ define([
 			this._posTouch = [touch.pageX, touch.pageY];
 
 			var $el = this.$el;
-			this._posElement = [
-				parseInt($el.css('left')),
-				parseInt($el.css('top'))
-			];
+			this._posElement = this.getPosition();
 		},
 
 		/**
-		 * On touchstop.
+		 * On touchend.
 		 */
 		stopMoving: function(event) {
 			this._moving = false;
+			this.trigger('movestop', { view:this });
 		},
 
 		/**
@@ -69,6 +72,17 @@ define([
 		 */
 		isMoving: function() {
 			return this._moving;
+		},
+
+		/**
+		 * @returns {Array} `[x,y]`
+		 */
+		getPosition: function() {
+			var $el = this.$el;
+			return [
+				parseInt($el.css('left')),
+				parseInt($el.css('top'))
+			];
 		}
 	});
 });

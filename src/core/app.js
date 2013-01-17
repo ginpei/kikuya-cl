@@ -17,6 +17,7 @@ define([
 		render: function() {
 			this.map.render().$el
 				.appendTo('#map');
+			this.map.updateDetachRect();
 		},
 
 		newView: function(prototype) {

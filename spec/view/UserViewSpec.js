@@ -38,7 +38,7 @@ define([
 				view.$el.trigger(touchStartEvent);
 				expect(view.isMoving()).toBeTruthy();
 
-				view.$el.trigger('touchstop', { });
+				view.$el.trigger('touchend', { });
 				expect(view.isMoving()).toBeFalsy();
 			});
 
