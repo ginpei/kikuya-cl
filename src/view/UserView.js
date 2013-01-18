@@ -2,9 +2,6 @@ define([
 	'app'
 ], function(app) {
 	return app.newView({
-		tagName: 'li',
-		className: 'user',
-
 		events: {
 			'touchmove': 'move',
 			'touchstart': 'startMoving',
@@ -16,10 +13,14 @@ define([
 		},
 
 		render: function() {
-			var id = this.cid;
-			this.$el
-				.css('position', 'absolute')  // TODO: move to CSS
-				.text(this.model.get('name') || 'New User#'+this.model.cid);
+			var data = {
+				id: this.model.cid,
+				name: this.model.get('name') || 'New User#'+this.model.cid
+			};
+			this.setElement($('#template-user').prop('text')
+				.replace(/{(.+)}/, function(m0, m1, source) {
+					return (m1 in data ? data[m1] : '');
+				}));
 			this.setPosition(0, 0);
 
 			return this;
