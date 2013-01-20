@@ -1,0 +1,1 @@
+(function(){dust.register("tpl/user.html",body_0);function body_0(chk,ctx){return chk.write("<li class=\"user\"><span class=\"image\"><img src=\"ginpei_jp.png\" width=\"48\" height=\"48\" alt=\"\" /></span><span class=\"name\">").reference(ctx.get("name"),ctx,"h").write("</span></li>");}return body_0;})();

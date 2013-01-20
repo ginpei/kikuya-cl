@@ -1,5 +1,6 @@
 define([
-	'app'
+	'app',
+	'template/user'
 ], function(app) {
 	return app.newView({
 		events: {
@@ -17,10 +18,8 @@ define([
 				id: this.model.cid,
 				name: this.model.get('name') || 'New User#'+this.model.cid
 			};
-			this.setElement($('#template-user').prop('text')
-				.replace(/\{(.+)\}/, function(m0, m1, source) {
-					return (m1 in data ? data[m1] : '');
-				}));
+			var html = this._buildHtml('tpl/user.html', data);
+			this.setElement($(html));
 			this.setPosition(0, 0);
 
 			return this;

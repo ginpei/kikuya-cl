@@ -1,5 +1,6 @@
 define([
-], function() {
+	'core/View'
+], function(View) {
 	return {
 		start: function() {
 			var app = this;
@@ -21,7 +22,7 @@ define([
 		},
 
 		newView: function(prototype) {
-			return Backbone.View.extend(prototype);
+			return View.extend(prototype);
 		},
 
 		newCollection: function(prototype) {
