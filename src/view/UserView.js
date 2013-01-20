@@ -18,7 +18,7 @@ define([
 				name: this.model.get('name') || 'New User#'+this.model.cid
 			};
 			this.setElement($('#template-user').prop('text')
-				.replace(/{(.+)}/, function(m0, m1, source) {
+				.replace(/\{(.+)\}/, function(m0, m1, source) {
 					return (m1 in data ? data[m1] : '');
 				}));
 			this.setPosition(0, 0);
@@ -81,8 +81,8 @@ define([
 		getPosition: function() {
 			var $el = this.$el;
 			return [
-				parseInt($el.css('left')),
-				parseInt($el.css('top'))
+				parseInt($el.css('left'), 10),
+				parseInt($el.css('top'), 10)
 			];
 		}
 	});
