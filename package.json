@@ -2,6 +2,6 @@
   "name": "Kikuya-cli",
   "version": "0.0.0",
   "dependencies": {
-    "dustjs-linkedin": "~1.1.1"
+    "dustjs-linkedin": "~2.7.5"
   }
 }
